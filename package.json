@@ -1,0 +1,20 @@
+{
+  "name": "tagged-table",
+  "version": "1.0.0",
+  "description": "A function for converting taggled template literals into an array of objects",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "tagged-table"
+  },
+  "keywords": [
+    "JavaScript",
+    "TaggedTemplateLiteral",
+    "ES6"
+  ],
+  "author": "Evernote",
+  "license": "MIT"
+}
