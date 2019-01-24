@@ -4,7 +4,17 @@
   "description": "A function for converting taggled template literals into an array of objects",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "test": "jest --watch",
+    "flow": "flow",
+    "clean": "rm -rf dist && mkdir dist",
+    "build-module": "babel -d ./dist ./src -s",
+    "build": "npm run clean && npm run build-module",
+    "prepare": "npm run build"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.jsx?$": "babel-jest"
+    }
   },
   "repository": {
     "type": "git",
@@ -16,5 +26,17 @@
     "ES6"
   ],
   "author": "Evernote",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.3.1",
+    "@babel/preset-flow": "^7.0.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^23.6.0",
+    "jest": "^23.6.0"
+  },
+  "dependencies": {
+    "flow-bin": "^0.91.0"
+  }
 }
