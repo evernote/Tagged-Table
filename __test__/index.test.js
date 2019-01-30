@@ -93,4 +93,16 @@ describe("taggedTable", () => {
       { prop1: "three" }
     ]);
   });
+
+  it("throws an error if cell left blank", () => {
+    function makeTable() {
+      taggedTable`
+      prop1  | prop2  | prop3
+      one    |        | three
+      four   | five   | six
+    `;
+    }
+
+    expect(makeTable).toThrowError()
+  });
 });

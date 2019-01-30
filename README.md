@@ -31,4 +31,4 @@ Will become this:
 ]
 ```
 
-Strings don't need interpolation, but leaving a cell empty will have unintended results. Use `${undefined}` instead of an empty cell.
+Strings don't need interpolation, but don't leave a cell empty. Use `${undefined}` instead.
