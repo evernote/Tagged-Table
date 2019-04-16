@@ -1,7 +1,7 @@
-export default function taggedTable(
-  strings: string[],
+export default function taggedTable<T>(
+  strings: TemplateStringsArray,
   ...args: any[]
-): Object[] {
+): T[] {
   const rowStrings = String.raw(strings)
     .split("\n")
     .filter(v => v);
@@ -20,7 +20,7 @@ export default function taggedTable(
     const rowDataArr = row.split("|").map(str => str.trim());
     valueCount += rowDataArr.filter(v => v).length;
 
-    return rowDataArr.reduce((acc, curr, idx) => {
+    return rowDataArr.reduce((acc: { [field: string]: any }, curr, idx) => {
       if (curr === "") {
         const value = args[argsIdx];
         acc[fields[idx]] = value;
@@ -30,7 +30,7 @@ export default function taggedTable(
       }
 
       return acc;
-    }, {});
+    }, {}) as T;
   });
 
   if (expectedValueLength !== valueCount) {

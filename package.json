@@ -2,19 +2,19 @@
   "name": "tagged-table",
   "version": "1.0.0",
   "description": "A function for converting taggled template literals into an array of objects",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
     "test": "jest --watch",
     "flow": "flow",
     "clean": "rm -rf dist && mkdir dist",
-    "build-module": "babel -d ./dist ./src -s",
-    "build": "npm run clean && npm run build-module",
-    "prepare": "npm run build"
+    "build": "npm run clean && npm run build:types && npm run build:js",
+    "build:types": "tsc --emitDeclarationOnly",
+    "build:js": "babel src --out-dir dist --extensions \".ts,.tsx\" --source-maps inline",
+    "prepare": "npm run build",
+    "ts": "tsc --noEmit"
   },
   "jest": {
-    "transform": {
-      "^.+\\.jsx?$": "babel-jest"
-    }
+    "preset": "ts-jest"
   },
   "repository": {
     "type": "git",
@@ -28,15 +28,14 @@
   "author": "Evernote",
   "license": "MIT",
   "devDependencies": {
-    "@babel/cli": "^7.2.3",
-    "@babel/core": "^7.2.2",
-    "@babel/preset-env": "^7.3.1",
-    "@babel/preset-flow": "^7.0.0",
-    "babel-core": "^7.0.0-bridge.0",
-    "babel-jest": "^23.6.0",
-    "jest": "^23.6.0"
-  },
-  "dependencies": {
-    "flow-bin": "^0.91.0"
+    "@babel/cli": "^7.4.3",
+    "@babel/core": "^7.4.3",
+    "@babel/preset-env": "^7.4.3",
+    "@babel/preset-typescript": "^7.3.3",
+    "@types/jest": "^24.0.11",
+    "babel-jest": "^24.7.1",
+    "jest": "^24.7.1",
+    "ts-jest": "^24.0.2",
+    "typescript": "^3.4.3"
   }
 }
