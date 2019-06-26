@@ -1,5 +1,12 @@
 import taggedTable from "../src/index";
 
+const rootTable = taggedTable`
+  id   | name   | value      | date
+  ${1} | first  | ${false}   | 1/1/1970
+  ${2} | second | ${true}    | 1/1/2000
+  ${3} | third  | ${false}   | 3/5/2005
+`;
+
 describe("taggedTable", () => {
   it("expects an empty table if no rows", () => {
     const table = taggedTable`
@@ -8,6 +15,10 @@ describe("taggedTable", () => {
 
     expect(table.length).toBe(0);
   });
+
+  it("handles an unindented table", () => {
+    expect(rootTable.length).toBe(3);
+  })
 
   it("builds arrays of objects, with keys being column headers and values the row cell", () => {
     const table = taggedTable`

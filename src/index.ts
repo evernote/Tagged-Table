@@ -9,9 +9,10 @@ export default function taggedTable<T>(
   const topLine = rowStrings[0];
   const cleanString = topLine.replace(/\s/g, "");
   const fields = cleanString.split("|");
+  const isLastElementEmpty = !(rowStrings[rowStrings.length - 1].trim());
   let argsIdx = 0;
 
-  const rowData = rowStrings.slice(1, -1);
+  const rowData = isLastElementEmpty ? rowStrings.slice(1, -1) : rowStrings.slice(1);
 
   const expectedValueLength = rowData.length * fields.length;
   let valueCount = args.length;

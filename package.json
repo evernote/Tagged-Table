@@ -1,6 +1,6 @@
 {
   "name": "tagged-table",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A function for converting tagged template literals into an array of objects",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
