@@ -1,11 +1,11 @@
 {
   "name": "tagged-table",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "A function for converting tagged template literals into an array of objects",
-  "main": "index.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "test": "jest --watch",
-    "flow": "flow",
     "clean": "rm -rf dist && mkdir dist",
     "build": "npm run clean && npm run build:types && npm run build:js",
     "build:types": "tsc --emitDeclarationOnly",

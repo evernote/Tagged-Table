@@ -1,0 +1,9 @@
+*.log
+npm-debug.log*
+
+node_modules
+
+package-lock.json
+
+src
+__test__
